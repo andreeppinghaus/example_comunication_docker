@@ -6,6 +6,9 @@ services:
     ports:
       - "5672:5672"  # Porta para conexão AMQP
       - "15672:15672"  # Porta para a interface de gerenciamento do RabbitMQ
+    environment:
+      RABBITMQ_DEFAULT_USER: meu_usuario  # Define o usuário personalizado
+      RABBITMQ_DEFAULT_PASS: minha_senha  # Define a senha personalizada
     networks:
       - my-network
 
@@ -14,6 +17,9 @@ services:
     container_name: node-app
     depends_on:
       - rabbitmq
+    volumes:
+      - ./node-app:/usr/src/app # Monta o código-fonte
+      - /usr/src/app/node_modules # Volume separado para node_modules
     networks:
       - my-network
 
@@ -22,6 +28,8 @@ services:
     container_name: php-app
     depends_on:
       - rabbitmq
+    volumes:
+      - ./php-app:/usr/src/app  # Monta o diretório php-app do host no container
     networks:
       - my-network
 
