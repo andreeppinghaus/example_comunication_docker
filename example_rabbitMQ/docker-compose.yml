@@ -1,0 +1,29 @@
+version: '3'
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"  # Porta para conexão AMQP
+      - "15672:15672"  # Porta para a interface de gerenciamento do RabbitMQ
+    networks:
+      - my-network
+
+  node-app:
+    build: ./node-app
+    container_name: node-app
+    depends_on:
+      - rabbitmq
+    networks:
+      - my-network
+
+  php-app:
+    build: ./php-app
+    container_name: php-app
+    depends_on:
+      - rabbitmq
+    networks:
+      - my-network
+
+networks:
+  my-network:
