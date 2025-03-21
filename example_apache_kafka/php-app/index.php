@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Biblioteca
+ */
 $maxAttempts = 3;
 $attempt = 0;
 $connected = false;

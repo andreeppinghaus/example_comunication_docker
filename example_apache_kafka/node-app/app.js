@@ -1,3 +1,6 @@
+/**
+ * biblioteca: https://kafka.js.org/docs/getting-started
+ */
 const { Kafka, logLevel } = require('kafkajs');
 
 async function connectToKafka() {
