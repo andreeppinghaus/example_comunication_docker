@@ -1,0 +1,33 @@
+version: '3'
+services:
+  
+  php-app1:
+    build: ./php-app1
+    container_name: php-app1
+    volumes:
+      - ./php-app:/usr/src/app
+      - shared-volume:/usr/src/app/in  # Monta o volume no serviço app1
+    networks:
+      - my-network
+
+  php-app2:
+    build: ./php-app2
+    container_name: php-app2
+    depends_on:
+      - kafka
+    volumes:
+      - ./php-app:/usr/src/app
+      - shared-volume:/usr/src/app/in  # Monta o volume no serviço app1
+    networks:
+      - my-network
+
+networks:
+  my-network:
+
+volumes:
+  shared-volume:
+    driver: local
+    driver_opts:
+      type: none
+      device: in  
+      o: bind
