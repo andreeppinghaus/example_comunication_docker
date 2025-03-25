@@ -9,3 +9,32 @@
 [2025-03-25T00:01:00.378+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/containers1_dag.py for tasks to queue
 [2025-03-25T00:01:00.382+0000] {logging_mixin.py:190} INFO - [2025-03-25T00:01:00.381+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/containers1_dag.py
 [2025-03-25T00:01:00.401+0000] {processor.py:925} INFO - DAG(s) 'containers1_dag' retrieved from /opt/airflow/dags/containers1_dag.py
+[2025-03-25T00:01:00.456+0000] {logging_mixin.py:190} INFO - [2025-03-25T00:01:00.454+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-25T00:01:00.516+0000] {logging_mixin.py:190} INFO - [2025-03-25T00:01:00.515+0000] {dag.py:4180} INFO - Setting next_dagrun for containers1_dag to 2024-03-15 00:00:00+00:00, run_after=2024-03-16 00:00:00+00:00
+[2025-03-25T00:01:00.552+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/containers1_dag.py took 0.185 seconds
+[2025-03-25T00:01:05.259+0000] {processor.py:186} INFO - Started process (PID=682) to work on /opt/airflow/dags/containers1_dag.py
+[2025-03-25T00:01:05.260+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/containers1_dag.py for tasks to queue
+[2025-03-25T00:01:05.263+0000] {logging_mixin.py:190} INFO - [2025-03-25T00:01:05.262+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/containers1_dag.py
+[2025-03-25T00:01:05.273+0000] {logging_mixin.py:190} INFO - [2025-03-25T00:01:05.270+0000] {dagbag.py:387} ERROR - Failed to import: /opt/airflow/dags/containers1_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 383, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/containers1_dag.py", line 19, in <module>
+    task1 = DockerOperator(
+            ^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 508, in apply_defaults
+    result = func(self, **kwargs, default_args=default_args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/operators/docker.py", line 256, in __init__
+    super().__init__(**kwargs)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 508, in apply_defaults
+    result = func(self, **kwargs, default_args=default_args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 959, in __init__
+    raise AirflowException(
+airflow.exceptions.AirflowException: Invalid arguments were passed to DockerOperator (task_id: php_app1). Invalid arguments were:
+**kwargs: {'volumes': ['$(pwd)/../in:/usr/src/app/in', '$(pwd):/usr/src/app']}
+[2025-03-25T00:01:05.274+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/containers1_dag.py
+[2025-03-25T00:01:05.307+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/containers1_dag.py took 0.056 seconds
