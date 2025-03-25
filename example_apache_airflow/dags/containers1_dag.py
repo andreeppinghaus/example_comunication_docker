@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.providers.docker.operators.docker import DockerOperator
+from docker.types import Mount
 
 default_args = {
     'owner': 'andre',
@@ -16,28 +17,31 @@ with DAG(
     schedule_interval='@daily',
 ) as dag:
     
+    # Ajuste estes caminhos para seu ambiente REAL
+    HOST_BASE_DIR = "/home/andre/www/example_comunication_docker/example_containers"
+    
     task1 = DockerOperator(
         task_id='php_app1',
-        image='php-app1',  # Nome da sua imagem Docker
+        image='php-app1',  # Certifique-se que esta imagem existe
         api_version='auto',
-        auto_remove=True,
+        auto_remove='success',
         docker_url='unix://var/run/docker.sock',
-        volumes=[
-            '$(pwd)/../in:/usr/src/app/in',
-            '$(pwd):/usr/src/app'
+        mounts=[
+            Mount(source=f"{HOST_BASE_DIR}/in", target="/usr/src/app/in", type="bind"),
+            Mount(source=f"{HOST_BASE_DIR}/php-app1", target="/usr/src/app", type="bind")
         ],
         network_mode='bridge'
     )
 
     task2 = DockerOperator(
         task_id='php_app2',
-        image='php-app2',  # Nome da sua imagem Docker
+        image='php-app2',  # Certifique-se que esta imagem existe
         api_version='auto',
-        auto_remove=True,
+        auto_remove='success',
         docker_url='unix://var/run/docker.sock',
-        volumes=[
-            '$(pwd)/../in:/usr/src/app/in',
-            '$(pwd):/usr/src/app'
+        mounts=[
+            Mount(source=f"{HOST_BASE_DIR}/in", target="/usr/src/app/in", type="bind"),
+            Mount(source=f"{HOST_BASE_DIR}/php-app2", target="/usr/src/app", type="bind")
         ],
         network_mode='bridge'
     )

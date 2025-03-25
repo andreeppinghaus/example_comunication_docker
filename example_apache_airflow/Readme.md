@@ -68,3 +68,5 @@ sudo docker-compose up -d
 -- demora um pouco, abrir o navegador e entrar em localhost:8080
 login: airflow
 senha: airflow
+
+sudo usermod -aG docker airflow

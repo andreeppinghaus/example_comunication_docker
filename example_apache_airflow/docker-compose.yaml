@@ -151,7 +151,7 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
-
+  
   # airflow-worker:
   #   <<: *airflow-common
   #   command: celery worker
