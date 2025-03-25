@@ -1,0 +1,354 @@
+[2025-03-24T22:19:25.366+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-24T22:19:25.482+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: containers1_dag.php_app2 scheduled__2024-03-11T00:00:00+00:00 [queued]>
+[2025-03-24T22:19:25.552+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: containers1_dag.php_app2 scheduled__2024-03-11T00:00:00+00:00 [queued]>
+[2025-03-24T22:19:25.553+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 6
+[2025-03-24T22:19:25.686+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): php_app2> on 2024-03-11 00:00:00+00:00
+[2025-03-24T22:19:25.801+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'containers1_dag', 'php_app2', 'scheduled__2024-03-11T00:00:00+00:00', '--job-id', '142', '--raw', '--subdir', 'DAGS_FOLDER/containers1_dag.py', '--cfg-path', '/tmp/tmplt73wl_r']
+[2025-03-24T22:19:25.815+0000] {standard_task_runner.py:105} INFO - Job 142: Subtask php_app2
+[2025-03-24T22:19:25.784+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=4947) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-24T22:19:25.817+0000] {standard_task_runner.py:72} INFO - Started process 4982 to run task
+[2025-03-24T22:19:26.503+0000] {task_command.py:467} INFO - Running <TaskInstance: containers1_dag.php_app2 scheduled__2024-03-11T00:00:00+00:00 [running]> on host b9050090f7f5
+[2025-03-24T22:19:27.510+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='andreeppinghaus' AIRFLOW_CTX_DAG_ID='containers1_dag' AIRFLOW_CTX_TASK_ID='php_app2' AIRFLOW_CTX_EXECUTION_DATE='2024-03-11T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-03-11T00:00:00+00:00'
+[2025-03-24T22:19:27.511+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-24T22:19:27.569+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-03-24T22:19:27.570+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'sudo docker run -v $(pwd)/../in:/usr/src/app/in -v $(pwd):/usr/src/app php-app2']
+[2025-03-24T22:19:27.599+0000] {subprocess.py:99} INFO - Output:
+[2025-03-24T22:19:27.647+0000] {subprocess.py:106} INFO - sudo: a terminal is required to read the password; either use the -S option to read from standard input or configure an askpass helper
+[2025-03-24T22:19:27.648+0000] {subprocess.py:106} INFO - sudo: a password is required
+[2025-03-24T22:19:27.649+0000] {subprocess.py:110} INFO - Command exited with return code 1
+[2025-03-24T22:19:27.671+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-03-24T22:19:27.787+0000] {taskinstance.py:1226} INFO - Marking task as UP_FOR_RETRY. dag_id=containers1_dag, task_id=php_app2, run_id=scheduled__2024-03-11T00:00:00+00:00, execution_date=20240311T000000, start_date=20250324T221925, end_date=20250324T221927
+[2025-03-24T22:19:28.150+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-24T22:19:28.159+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 142 for task php_app2 (Bash command failed. The command returned a non-zero exit code 1.; 4982)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-03-24T22:19:28.221+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-03-24T22:19:28.298+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-03-24T22:24:21.470+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-24T22:24:21.568+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: containers1_dag.php_app2 scheduled__2024-03-11T00:00:00+00:00 [queued]>
+[2025-03-24T22:24:21.595+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: containers1_dag.php_app2 scheduled__2024-03-11T00:00:00+00:00 [queued]>
+[2025-03-24T22:24:21.596+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 6
+[2025-03-24T22:24:21.690+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): php_app2> on 2024-03-11 00:00:00+00:00
+[2025-03-24T22:24:21.746+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'containers1_dag', 'php_app2', 'scheduled__2024-03-11T00:00:00+00:00', '--job-id', '164', '--raw', '--subdir', 'DAGS_FOLDER/containers1_dag.py', '--cfg-path', '/tmp/tmpo8o4mj10']
+[2025-03-24T22:24:21.752+0000] {standard_task_runner.py:105} INFO - Job 164: Subtask php_app2
+[2025-03-24T22:24:21.738+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=5319) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-24T22:24:21.767+0000] {standard_task_runner.py:72} INFO - Started process 5344 to run task
+[2025-03-24T22:24:22.266+0000] {task_command.py:467} INFO - Running <TaskInstance: containers1_dag.php_app2 scheduled__2024-03-11T00:00:00+00:00 [running]> on host b9050090f7f5
+[2025-03-24T22:24:23.058+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='andre' AIRFLOW_CTX_DAG_ID='containers1_dag' AIRFLOW_CTX_TASK_ID='php_app2' AIRFLOW_CTX_EXECUTION_DATE='2024-03-11T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-03-11T00:00:00+00:00'
+[2025-03-24T22:24:23.059+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-24T22:24:23.307+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-03-24T22:24:23.319+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'sudo docker run -v $(pwd)/../in:/usr/src/app/in -v $(pwd):/usr/src/app php-app2']
+[2025-03-24T22:24:23.346+0000] {subprocess.py:99} INFO - Output:
+[2025-03-24T22:24:23.405+0000] {subprocess.py:106} INFO - sudo: a terminal is required to read the password; either use the -S option to read from standard input or configure an askpass helper
+[2025-03-24T22:24:23.406+0000] {subprocess.py:106} INFO - sudo: a password is required
+[2025-03-24T22:24:23.425+0000] {subprocess.py:110} INFO - Command exited with return code 1
+[2025-03-24T22:24:23.539+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-03-24T22:24:23.604+0000] {taskinstance.py:1226} INFO - Marking task as UP_FOR_RETRY. dag_id=containers1_dag, task_id=php_app2, run_id=scheduled__2024-03-11T00:00:00+00:00, execution_date=20240311T000000, start_date=20250324T222421, end_date=20250324T222423
+[2025-03-24T22:24:23.904+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-24T22:24:23.905+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 164 for task php_app2 (Bash command failed. The command returned a non-zero exit code 1.; 5344)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-03-24T22:24:24.058+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-03-24T22:24:24.124+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-03-24T22:27:29.499+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-24T22:27:29.563+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: containers1_dag.php_app2 scheduled__2024-03-11T00:00:00+00:00 [queued]>
+[2025-03-24T22:27:29.627+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: containers1_dag.php_app2 scheduled__2024-03-11T00:00:00+00:00 [queued]>
+[2025-03-24T22:27:29.628+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 6
+[2025-03-24T22:27:29.689+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): php_app2> on 2024-03-11 00:00:00+00:00
+[2025-03-24T22:27:29.713+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=5769) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-24T22:27:29.715+0000] {standard_task_runner.py:72} INFO - Started process 5816 to run task
+[2025-03-24T22:27:29.732+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'containers1_dag', 'php_app2', 'scheduled__2024-03-11T00:00:00+00:00', '--job-id', '195', '--raw', '--subdir', 'DAGS_FOLDER/containers1_dag.py', '--cfg-path', '/tmp/tmp7ndul14s']
+[2025-03-24T22:27:29.783+0000] {standard_task_runner.py:105} INFO - Job 195: Subtask php_app2
+[2025-03-24T22:27:30.099+0000] {task_command.py:467} INFO - Running <TaskInstance: containers1_dag.php_app2 scheduled__2024-03-11T00:00:00+00:00 [running]> on host b9050090f7f5
+[2025-03-24T22:27:31.040+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='andre' AIRFLOW_CTX_DAG_ID='containers1_dag' AIRFLOW_CTX_TASK_ID='php_app2' AIRFLOW_CTX_EXECUTION_DATE='2024-03-11T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-03-11T00:00:00+00:00'
+[2025-03-24T22:27:31.044+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-24T22:27:31.259+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-03-24T22:27:31.260+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'docker run -v $(pwd)/../in:/usr/src/app/in -v $(pwd):/usr/src/app php-app2']
+[2025-03-24T22:27:31.423+0000] {subprocess.py:99} INFO - Output:
+[2025-03-24T22:27:31.635+0000] {subprocess.py:106} INFO - docker: Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?.
+[2025-03-24T22:27:31.641+0000] {subprocess.py:106} INFO - See 'docker run --help'.
+[2025-03-24T22:27:31.647+0000] {subprocess.py:110} INFO - Command exited with return code 125
+[2025-03-24T22:27:31.745+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 125.
+[2025-03-24T22:27:31.931+0000] {taskinstance.py:1226} INFO - Marking task as UP_FOR_RETRY. dag_id=containers1_dag, task_id=php_app2, run_id=scheduled__2024-03-11T00:00:00+00:00, execution_date=20240311T000000, start_date=20250324T222729, end_date=20250324T222731
+[2025-03-24T22:27:32.355+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-24T22:27:32.379+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 195 for task php_app2 (Bash command failed. The command returned a non-zero exit code 125.; 5816)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 125.
+[2025-03-24T22:27:32.430+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-03-24T22:27:32.479+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-24T22:27:32.503+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-03-24T23:57:30.371+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-24T23:57:30.420+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: containers1_dag.php_app2 scheduled__2024-03-11T00:00:00+00:00 [queued]>
+[2025-03-24T23:57:30.453+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: containers1_dag.php_app2 scheduled__2024-03-11T00:00:00+00:00 [queued]>
+[2025-03-24T23:57:30.457+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 6
+[2025-03-24T23:57:30.524+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): php_app2> on 2024-03-11 00:00:00+00:00
+[2025-03-24T23:57:30.561+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'containers1_dag', 'php_app2', 'scheduled__2024-03-11T00:00:00+00:00', '--job-id', '23', '--raw', '--subdir', 'DAGS_FOLDER/containers1_dag.py', '--cfg-path', '/tmp/tmp7l4dsvdt']
+[2025-03-24T23:57:30.569+0000] {standard_task_runner.py:105} INFO - Job 23: Subtask php_app2
+[2025-03-24T23:57:30.605+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=444) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-24T23:57:30.611+0000] {standard_task_runner.py:72} INFO - Started process 489 to run task
+[2025-03-24T23:57:30.816+0000] {task_command.py:467} INFO - Running <TaskInstance: containers1_dag.php_app2 scheduled__2024-03-11T00:00:00+00:00 [running]> on host 8e89fdaa3360
+[2025-03-24T23:57:31.375+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='andre' AIRFLOW_CTX_DAG_ID='containers1_dag' AIRFLOW_CTX_TASK_ID='php_app2' AIRFLOW_CTX_EXECUTION_DATE='2024-03-11T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-03-11T00:00:00+00:00'
+[2025-03-24T23:57:31.382+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-24T23:57:31.452+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-03-24T23:57:31.453+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'docker run -v $(pwd)/../in:/usr/src/app/in -v $(pwd):/usr/src/app php-app2']
+[2025-03-24T23:57:31.524+0000] {subprocess.py:99} INFO - Output:
+[2025-03-24T23:57:31.607+0000] {subprocess.py:106} INFO - docker: Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?.
+[2025-03-24T23:57:31.608+0000] {subprocess.py:106} INFO - See 'docker run --help'.
+[2025-03-24T23:57:31.618+0000] {subprocess.py:110} INFO - Command exited with return code 125
+[2025-03-24T23:57:31.667+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 125.
+[2025-03-24T23:57:31.708+0000] {taskinstance.py:1226} INFO - Marking task as UP_FOR_RETRY. dag_id=containers1_dag, task_id=php_app2, run_id=scheduled__2024-03-11T00:00:00+00:00, execution_date=20240311T000000, start_date=20250324T235730, end_date=20250324T235731
+[2025-03-24T23:57:31.856+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-24T23:57:31.858+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 23 for task php_app2 (Bash command failed. The command returned a non-zero exit code 125.; 489)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 125.
+[2025-03-24T23:57:31.884+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-03-24T23:57:31.975+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-24T23:57:31.989+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

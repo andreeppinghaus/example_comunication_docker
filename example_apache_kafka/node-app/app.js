@@ -7,6 +7,7 @@ async function connectToKafka() {
     const kafka = new Kafka({
         clientId: 'node-app',
         brokers: ['kafka:9092'],
+        // brokers: ['localhost:9093'],
         logLevel: logLevel.ERROR, // Define o nível de log para evitar logs desnecessários
     });
 
