@@ -556,3 +556,440 @@ Traceback (most recent call last):
 airflow.exceptions.AirflowException: Failed to establish connection to any given Docker hosts.
 [2025-03-25T00:25:44.982+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
 [2025-03-25T00:25:45.053+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-03-25T12:45:30.427+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-25T12:45:30.731+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: containers1_dag.php_app1 scheduled__2024-03-04T00:00:00+00:00 [queued]>
+[2025-03-25T12:45:30.803+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: containers1_dag.php_app1 scheduled__2024-03-04T00:00:00+00:00 [queued]>
+[2025-03-25T12:45:30.805+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 6
+[2025-03-25T12:45:30.879+0000] {taskinstance.py:2890} INFO - Executing <Task(DockerOperator): php_app1> on 2024-03-04 00:00:00+00:00
+[2025-03-25T12:45:30.930+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'containers1_dag', 'php_app1', 'scheduled__2024-03-04T00:00:00+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/containers1_dag.py', '--cfg-path', '/tmp/tmp9bq8d26t']
+[2025-03-25T12:45:30.943+0000] {standard_task_runner.py:105} INFO - Job 9: Subtask php_app1
+[2025-03-25T12:45:30.950+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=220) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-25T12:45:30.967+0000] {standard_task_runner.py:72} INFO - Started process 246 to run task
+[2025-03-25T12:45:31.414+0000] {task_command.py:467} INFO - Running <TaskInstance: containers1_dag.php_app1 scheduled__2024-03-04T00:00:00+00:00 [running]> on host c83c0958fca4
+[2025-03-25T12:45:32.544+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='andre' AIRFLOW_CTX_DAG_ID='containers1_dag' AIRFLOW_CTX_TASK_ID='php_app1' AIRFLOW_CTX_EXECUTION_DATE='2024-03-04T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-03-04T00:00:00+00:00'
+[2025-03-25T12:45:32.548+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-25T12:45:32.705+0000] {docker.py:157} ERROR - Failed to establish connection to Docker host unix://var/run/docker.sock: Error while fetching server API version: ('Connection aborted.', FileNotFoundError(2, 'No such file or directory'))
+[2025-03-25T12:45:32.867+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/operators/docker.py", line 467, in execute
+    if self.force_pull or not self.cli.images(name=self.image):
+                              ^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/operators/docker.py", line 341, in cli
+    return self.hook.api_client
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/functools.py", line 998, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/hooks/docker.py", line 161, in api_client
+    raise AirflowException("Failed to establish connection to any given Docker hosts.")
+airflow.exceptions.AirflowException: Failed to establish connection to any given Docker hosts.
+[2025-03-25T12:45:32.938+0000] {taskinstance.py:1226} INFO - Marking task as UP_FOR_RETRY. dag_id=containers1_dag, task_id=php_app1, run_id=scheduled__2024-03-04T00:00:00+00:00, execution_date=20240304T000000, start_date=20250325T124530, end_date=20250325T124532
+[2025-03-25T12:45:33.651+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-25T12:45:33.651+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 9 for task php_app1 (Failed to establish connection to any given Docker hosts.; 246)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/operators/docker.py", line 467, in execute
+    if self.force_pull or not self.cli.images(name=self.image):
+                              ^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/operators/docker.py", line 341, in cli
+    return self.hook.api_client
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/functools.py", line 998, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/hooks/docker.py", line 161, in api_client
+    raise AirflowException("Failed to establish connection to any given Docker hosts.")
+airflow.exceptions.AirflowException: Failed to establish connection to any given Docker hosts.
+[2025-03-25T12:45:33.811+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-03-25T12:45:34.009+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-25T12:45:34.037+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-03-26T11:52:46.043+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-26T11:52:46.216+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: containers1_dag.php_app1 scheduled__2024-03-04T00:00:00+00:00 [queued]>
+[2025-03-26T11:52:46.385+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: containers1_dag.php_app1 scheduled__2024-03-04T00:00:00+00:00 [queued]>
+[2025-03-26T11:52:46.386+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 6
+[2025-03-26T11:52:46.529+0000] {taskinstance.py:2890} INFO - Executing <Task(DockerOperator): php_app1> on 2024-03-04 00:00:00+00:00
+[2025-03-26T11:52:46.783+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'containers1_dag', 'php_app1', 'scheduled__2024-03-04T00:00:00+00:00', '--job-id', '10', '--raw', '--subdir', 'DAGS_FOLDER/containers1_dag.py', '--cfg-path', '/tmp/tmprusgkwhn']
+[2025-03-26T11:52:46.849+0000] {standard_task_runner.py:105} INFO - Job 10: Subtask php_app1
+[2025-03-26T11:52:46.899+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=221) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-26T11:52:46.914+0000] {standard_task_runner.py:72} INFO - Started process 241 to run task
+[2025-03-26T11:52:48.116+0000] {task_command.py:467} INFO - Running <TaskInstance: containers1_dag.php_app1 scheduled__2024-03-04T00:00:00+00:00 [running]> on host c0a4d7e9da1a
+[2025-03-26T11:52:48.860+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='andre' AIRFLOW_CTX_DAG_ID='containers1_dag' AIRFLOW_CTX_TASK_ID='php_app1' AIRFLOW_CTX_EXECUTION_DATE='2024-03-04T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-03-04T00:00:00+00:00'
+[2025-03-26T11:52:48.861+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-26T11:52:48.961+0000] {docker.py:157} ERROR - Failed to establish connection to Docker host unix://var/run/docker.sock: Error while fetching server API version: ('Connection aborted.', FileNotFoundError(2, 'No such file or directory'))
+[2025-03-26T11:52:48.997+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/operators/docker.py", line 467, in execute
+    if self.force_pull or not self.cli.images(name=self.image):
+                              ^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/operators/docker.py", line 341, in cli
+    return self.hook.api_client
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/functools.py", line 998, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/hooks/docker.py", line 161, in api_client
+    raise AirflowException("Failed to establish connection to any given Docker hosts.")
+airflow.exceptions.AirflowException: Failed to establish connection to any given Docker hosts.
+[2025-03-26T11:52:49.040+0000] {taskinstance.py:1226} INFO - Marking task as UP_FOR_RETRY. dag_id=containers1_dag, task_id=php_app1, run_id=scheduled__2024-03-04T00:00:00+00:00, execution_date=20240304T000000, start_date=20250326T115246, end_date=20250326T115249
+[2025-03-26T11:52:49.368+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-26T11:52:49.369+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 10 for task php_app1 (Failed to establish connection to any given Docker hosts.; 241)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/operators/docker.py", line 467, in execute
+    if self.force_pull or not self.cli.images(name=self.image):
+                              ^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/operators/docker.py", line 341, in cli
+    return self.hook.api_client
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/functools.py", line 998, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/hooks/docker.py", line 161, in api_client
+    raise AirflowException("Failed to establish connection to any given Docker hosts.")
+airflow.exceptions.AirflowException: Failed to establish connection to any given Docker hosts.
+[2025-03-26T11:52:49.502+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-03-26T11:52:49.743+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-26T11:52:49.771+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-03-26T13:18:08.194+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-26T13:18:08.376+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: containers1_dag.php_app1 scheduled__2024-03-04T00:00:00+00:00 [queued]>
+[2025-03-26T13:18:08.632+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: containers1_dag.php_app1 scheduled__2024-03-04T00:00:00+00:00 [queued]>
+[2025-03-26T13:18:08.687+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 6
+[2025-03-26T13:18:08.784+0000] {taskinstance.py:2890} INFO - Executing <Task(DockerOperator): php_app1> on 2024-03-04 00:00:00+00:00
+[2025-03-26T13:18:08.814+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=1246) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-26T13:18:08.815+0000] {standard_task_runner.py:72} INFO - Started process 1272 to run task
+[2025-03-26T13:18:08.813+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'containers1_dag', 'php_app1', 'scheduled__2024-03-04T00:00:00+00:00', '--job-id', '13', '--raw', '--subdir', 'DAGS_FOLDER/containers1_dag.py', '--cfg-path', '/tmp/tmpfam20x44']
+[2025-03-26T13:18:08.826+0000] {standard_task_runner.py:105} INFO - Job 13: Subtask php_app1
+[2025-03-26T13:18:09.162+0000] {task_command.py:467} INFO - Running <TaskInstance: containers1_dag.php_app1 scheduled__2024-03-04T00:00:00+00:00 [running]> on host f731374053d7
+[2025-03-26T13:18:10.014+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='andre' AIRFLOW_CTX_DAG_ID='containers1_dag' AIRFLOW_CTX_TASK_ID='php_app1' AIRFLOW_CTX_EXECUTION_DATE='2024-03-04T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-03-04T00:00:00+00:00'
+[2025-03-26T13:18:10.015+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-26T13:18:10.165+0000] {docker.py:157} ERROR - Failed to establish connection to Docker host unix://var/run/docker.sock: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+[2025-03-26T13:18:10.224+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/operators/docker.py", line 467, in execute
+    if self.force_pull or not self.cli.images(name=self.image):
+                              ^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/operators/docker.py", line 341, in cli
+    return self.hook.api_client
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/functools.py", line 998, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/hooks/docker.py", line 161, in api_client
+    raise AirflowException("Failed to establish connection to any given Docker hosts.")
+airflow.exceptions.AirflowException: Failed to establish connection to any given Docker hosts.
+[2025-03-26T13:18:10.254+0000] {taskinstance.py:1226} INFO - Marking task as UP_FOR_RETRY. dag_id=containers1_dag, task_id=php_app1, run_id=scheduled__2024-03-04T00:00:00+00:00, execution_date=20240304T000000, start_date=20250326T131808, end_date=20250326T131810
+[2025-03-26T13:18:10.372+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-26T13:18:10.375+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 13 for task php_app1 (Failed to establish connection to any given Docker hosts.; 1272)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/operators/docker.py", line 467, in execute
+    if self.force_pull or not self.cli.images(name=self.image):
+                              ^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/operators/docker.py", line 341, in cli
+    return self.hook.api_client
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/functools.py", line 998, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/hooks/docker.py", line 161, in api_client
+    raise AirflowException("Failed to establish connection to any given Docker hosts.")
+airflow.exceptions.AirflowException: Failed to establish connection to any given Docker hosts.
+[2025-03-26T13:18:10.444+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-03-26T13:18:10.509+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-26T13:18:10.525+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-03-26T13:38:19.519+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-26T13:38:19.824+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: containers1_dag.php_app1 scheduled__2024-03-04T00:00:00+00:00 [queued]>
+[2025-03-26T13:38:19.927+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: containers1_dag.php_app1 scheduled__2024-03-04T00:00:00+00:00 [queued]>
+[2025-03-26T13:38:19.928+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 6
+[2025-03-26T13:38:20.195+0000] {taskinstance.py:2890} INFO - Executing <Task(DockerOperator): php_app1> on 2024-03-04 00:00:00+00:00
+[2025-03-26T13:38:20.270+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'containers1_dag', 'php_app1', 'scheduled__2024-03-04T00:00:00+00:00', '--job-id', '10', '--raw', '--subdir', 'DAGS_FOLDER/containers1_dag.py', '--cfg-path', '/tmp/tmpe3xedb_p']
+[2025-03-26T13:38:20.307+0000] {standard_task_runner.py:105} INFO - Job 10: Subtask php_app1
+[2025-03-26T13:38:20.331+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=251) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-26T13:38:20.332+0000] {standard_task_runner.py:72} INFO - Started process 273 to run task
+[2025-03-26T13:38:20.807+0000] {task_command.py:467} INFO - Running <TaskInstance: containers1_dag.php_app1 scheduled__2024-03-04T00:00:00+00:00 [running]> on host 3d581a580455
+[2025-03-26T13:38:22.571+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='andre' AIRFLOW_CTX_DAG_ID='containers1_dag' AIRFLOW_CTX_TASK_ID='php_app1' AIRFLOW_CTX_EXECUTION_DATE='2024-03-04T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-03-04T00:00:00+00:00'
+[2025-03-26T13:38:22.576+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-26T13:38:23.241+0000] {docker.py:345} INFO - Starting docker container from image php-app1
+[2025-03-26T13:38:23.428+0000] {docker.py:353} WARNING - Using remote engine or docker-in-docker and mounting temporary volume from host is not supported. Falling back to `mount_tmp_dir=False` mode. You can set `mount_tmp_dir` parameter to False to disable mounting and remove the warning
+[2025-03-26T13:38:25.720+0000] {docker.py:69} INFO - array(12) {
+[2025-03-26T13:38:25.720+0000] {docker.py:69} INFO -   [0]=>
+[2025-03-26T13:38:25.721+0000] {docker.py:69} INFO -   object(stdClass)#2 (3) {
+[2025-03-26T13:38:25.779+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:38:25.786+0000] {docker.py:69} INFO -     int(0)
+[2025-03-26T13:38:25.793+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:38:25.794+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:38:25.794+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:38:25.795+0000] {docker.py:69} INFO -     int(1742852307)
+[2025-03-26T13:38:25.810+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:38:25.811+0000] {docker.py:69} INFO -   [1]=>
+[2025-03-26T13:38:25.811+0000] {docker.py:69} INFO -   object(stdClass)#3 (3) {
+[2025-03-26T13:38:25.812+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:38:25.812+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:38:25.813+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:38:25.813+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:38:25.813+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:38:25.814+0000] {docker.py:69} INFO -     int(1742852309)
+[2025-03-26T13:38:25.814+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:38:25.815+0000] {docker.py:69} INFO -   [2]=>
+[2025-03-26T13:38:25.815+0000] {docker.py:69} INFO -   object(stdClass)#4 (3) {
+[2025-03-26T13:38:25.816+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:38:25.816+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:38:25.817+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:38:25.817+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:38:25.818+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:38:25.818+0000] {docker.py:69} INFO -     int(1742852311)
+[2025-03-26T13:38:25.819+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:38:25.819+0000] {docker.py:69} INFO -   [3]=>
+[2025-03-26T13:38:25.820+0000] {docker.py:69} INFO -   object(stdClass)#5 (3) {
+[2025-03-26T13:38:25.820+0000] {docker.py:69} INFO -     ["contador
+[2025-03-26T13:38:25.821+0000] {docker.py:69} INFO - "]=>
+[2025-03-26T13:38:25.821+0000] {docker.py:69} INFO - 
+[2025-03-26T13:38:25.822+0000] {docker.py:69} INFO - int(1)
+[2025-03-26T13:38:25.822+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:38:25.823+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:38:25.823+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:38:25.824+0000] {docker.py:69} INFO -     int(1742852314)
+[2025-03-26T13:38:25.824+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:38:25.824+0000] {docker.py:69} INFO -   [4]=>
+[2025-03-26T13:38:25.825+0000] {docker.py:69} INFO -   object(stdClass)#6 (3) {
+[2025-03-26T13:38:25.825+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:38:25.826+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:38:25.826+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:38:25.827+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:38:25.827+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:38:25.827+0000] {docker.py:69} INFO -     int(1742996301)
+[2025-03-26T13:38:25.828+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:38:25.828+0000] {docker.py:69} INFO -   [5]=>
+[2025-03-26T13:38:25.829+0000] {docker.py:69} INFO -   object(stdClass)#7 (3) {
+[2025-03-26T13:38:25.829+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:38:25.829+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:38:25.830+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:38:25.830+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:38:25.831+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:38:25.831+0000] {docker.py:69} INFO -     int(1742996302)
+[2025-03-26T13:38:25.831+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:38:25.832+0000] {docker.py:69} INFO -   [6]=>
+[2025-03-26T13:38:25.833+0000] {docker.py:69} INFO -   object(stdClass)#8 (3) {
+[2025-03-26T13:38:25.833+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:38:25.834+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:38:25.834+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:38:25.835+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:38:25.836+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:38:25.836+0000] {docker.py:69} INFO -     int(1742996302)
+[2025-03-26T13:38:25.837+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:38:25.837+0000] {docker.py:69} INFO -   [7]=>
+[2025-03-26T13:38:25.838+0000] {docker.py:69} INFO -   object(stdClass)#9 (3) {
+[2025-03-26T13:38:25.838+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:38:25.839+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:38:25.839+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:38:25.839+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:38:25.840+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:38:25.840+0000] {docker.py:69} INFO -     int(1742996303)
+[2025-03-26T13:38:25.841+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:38:25.841+0000] {docker.py:69} INFO -   [8]=>
+[2025-03-26T13:38:25.842+0000] {docker.py:69} INFO -   object(stdClass)#10 (3) {
+[2025-03-26T13:38:25.842+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:38:25.843+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:38:25.843+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:38:25.843+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:38:25.844+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:38:25.844+0000] {docker.py:69} INFO -     int(1742996304)
+[2025-03-26T13:38:25.845+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:38:25.845+0000] {docker.py:69} INFO -   [9]=>
+[2025-03-26T13:38:25.845+0000] {docker.py:69} INFO -   object(stdClass)#11 (3) {
+[2025-03-26T13:38:25.846+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:38:25.846+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:38:25.847+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:38:25.847+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:38:25.848+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:38:25.848+0000] {docker.py:69} INFO -     int(1742996305)
+[2025-03-26T13:38:25.849+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:38:25.850+0000] {docker.py:69} INFO -   [10]=>
+[2025-03-26T13:38:25.850+0000] {docker.py:69} INFO -   object(stdClass)#12 (3) {
+[2025-03-26T13:38:25.851+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:38:25.851+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:38:25.852+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:38:25.852+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:38:25.853+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:38:25.853+0000] {docker.py:69} INFO -     int(1742996305)
+[2025-03-26T13:38:25.853+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:38:25.854+0000] {docker.py:69} INFO -   [11]=>
+[2025-03-26T13:38:25.854+0000] {docker.py:69} INFO -   array(3) {
+[2025-03-26T13:38:25.855+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:38:25.855+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:38:25.856+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:38:25.856+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:38:25.857+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:38:25.857+0000] {docker.py:69} INFO -     int(1742996305)
+[2025-03-26T13:38:25.858+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:38:25.858+0000] {docker.py:69} INFO - }
+[2025-03-26T13:38:28.863+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-26T13:38:28.864+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=containers1_dag, task_id=php_app1, run_id=scheduled__2024-03-04T00:00:00+00:00, execution_date=20240304T000000, start_date=20250326T133819, end_date=20250326T133828
+[2025-03-26T13:38:29.310+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-26T13:38:29.365+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-26T13:38:29.394+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

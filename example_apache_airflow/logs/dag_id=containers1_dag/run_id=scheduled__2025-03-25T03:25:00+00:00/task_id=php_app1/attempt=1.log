@@ -1,0 +1,1137 @@
+[2025-03-26T13:47:26.909+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-26T13:47:27.333+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: containers1_dag.php_app1 scheduled__2025-03-25T03:25:00+00:00 [queued]>
+[2025-03-26T13:47:27.460+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: containers1_dag.php_app1 scheduled__2025-03-25T03:25:00+00:00 [queued]>
+[2025-03-26T13:47:27.461+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 6
+[2025-03-26T13:47:28.217+0000] {taskinstance.py:2890} INFO - Executing <Task(DockerOperator): php_app1> on 2025-03-25 03:25:00+00:00
+[2025-03-26T13:47:28.364+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=838) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-26T13:47:28.366+0000] {standard_task_runner.py:72} INFO - Started process 854 to run task
+[2025-03-26T13:47:28.480+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'containers1_dag', 'php_app1', 'scheduled__2025-03-25T03:25:00+00:00', '--job-id', '105', '--raw', '--subdir', 'DAGS_FOLDER/containers1_dag.py', '--cfg-path', '/tmp/tmp8cbuyb4c']
+[2025-03-26T13:47:28.502+0000] {standard_task_runner.py:105} INFO - Job 105: Subtask php_app1
+[2025-03-26T13:47:29.855+0000] {task_command.py:467} INFO - Running <TaskInstance: containers1_dag.php_app1 scheduled__2025-03-25T03:25:00+00:00 [running]> on host 3d581a580455
+[2025-03-26T13:47:33.385+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='andre' AIRFLOW_CTX_DAG_ID='containers1_dag' AIRFLOW_CTX_TASK_ID='php_app1' AIRFLOW_CTX_EXECUTION_DATE='2025-03-25T03:25:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-25T03:25:00+00:00'
+[2025-03-26T13:47:33.420+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-26T13:47:33.820+0000] {docker.py:345} INFO - Starting docker container from image php-app1
+[2025-03-26T13:47:33.826+0000] {docker.py:353} WARNING - Using remote engine or docker-in-docker and mounting temporary volume from host is not supported. Falling back to `mount_tmp_dir=False` mode. You can set `mount_tmp_dir` parameter to False to disable mounting and remove the warning
+[2025-03-26T13:47:36.164+0000] {docker.py:69} INFO - array(106) {
+[2025-03-26T13:47:36.165+0000] {docker.py:69} INFO -   [0]=>
+[2025-03-26T13:47:36.166+0000] {docker.py:69} INFO -   object(stdClass)#2 (3) {
+[2025-03-26T13:47:36.171+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:36.174+0000] {docker.py:69} INFO -     int(0)
+[2025-03-26T13:47:36.176+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:36.180+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:36.181+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:36.183+0000] {docker.py:69} INFO -     int(1742852307)
+[2025-03-26T13:47:36.184+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:36.185+0000] {docker.py:69} INFO -   [1]=>
+[2025-03-26T13:47:36.187+0000] {docker.py:69} INFO -   object(stdClass)#3 (3) {
+[2025-03-26T13:47:36.188+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:36.189+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:36.190+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:36.191+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:36.192+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:36.201+0000] {docker.py:69} INFO -     int(1742852309)
+[2025-03-26T13:47:36.202+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:36.204+0000] {docker.py:69} INFO -   [2]=>
+[2025-03-26T13:47:36.206+0000] {docker.py:69} INFO -   object(stdClass)#4 (3) {
+[2025-03-26T13:47:36.216+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:36.243+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:36.356+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:36.357+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:36.357+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:36.358+0000] {docker.py:69} INFO -     int(1742852311)
+[2025-03-26T13:47:36.394+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:36.432+0000] {docker.py:69} INFO -   [3]=>
+[2025-03-26T13:47:36.433+0000] {docker.py:69} INFO -   object(stdClass)#5 (3) {
+[2025-03-26T13:47:36.433+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:36.433+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:36.434+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:36.461+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:36.462+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:36.493+0000] {docker.py:69} INFO -     int(1742852314)
+[2025-03-26T13:47:36.517+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:36.518+0000] {docker.py:69} INFO -   [4]=>
+[2025-03-26T13:47:36.534+0000] {docker.py:69} INFO -   object(stdClass)#6 (3) {
+[2025-03-26T13:47:36.567+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:36.568+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:36.568+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:36.568+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:36.569+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:36.584+0000] {docker.py:69} INFO -     int(1742996301)
+[2025-03-26T13:47:36.585+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:36.607+0000] {docker.py:69} INFO -   [5]=>
+[2025-03-26T13:47:36.608+0000] {docker.py:69} INFO -   object(stdClass)#7 (3) {
+[2025-03-26T13:47:36.621+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:36.622+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:36.690+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:36.690+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:36.706+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:36.716+0000] {docker.py:69} INFO -     int(1742996302)
+[2025-03-26T13:47:36.726+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:36.727+0000] {docker.py:69} INFO -   [6]=>
+[2025-03-26T13:47:36.730+0000] {docker.py:69} INFO -   object(stdClass)#8 (3) {
+[2025-03-26T13:47:36.732+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:36.732+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:36.736+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:36.737+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:36.739+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:36.742+0000] {docker.py:69} INFO -     int(1742996302)
+[2025-03-26T13:47:36.744+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:36.745+0000] {docker.py:69} INFO -   [7]=>
+[2025-03-26T13:47:36.745+0000] {docker.py:69} INFO -   object(stdClass)#9 (3) {
+[2025-03-26T13:47:36.751+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:36.751+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:36.752+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:36.754+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:36.755+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:36.755+0000] {docker.py:69} INFO -     int(1742996303)
+[2025-03-26T13:47:36.756+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:36.756+0000] {docker.py:69} INFO -   [8]=>
+[2025-03-26T13:47:36.757+0000] {docker.py:69} INFO -   object(stdClass)#10 (3) {
+[2025-03-26T13:47:36.757+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:36.758+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:36.758+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:36.759+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:36.759+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:36.760+0000] {docker.py:69} INFO -     int(1742996304)
+[2025-03-26T13:47:36.760+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:36.761+0000] {docker.py:69} INFO -   [9]=>
+[2025-03-26T13:47:36.761+0000] {docker.py:69} INFO -   object(stdClass)#11 (3) {
+[2025-03-26T13:47:36.762+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:36.762+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:36.763+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:36.764+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:36.764+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:36.765+0000] {docker.py:69} INFO -     int(1742996305)
+[2025-03-26T13:47:36.766+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:36.767+0000] {docker.py:69} INFO -   [10]=>
+[2025-03-26T13:47:36.767+0000] {docker.py:69} INFO -   object(stdClass)#12 (3) {
+[2025-03-26T13:47:36.768+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:36.768+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:36.769+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:36.769+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:36.770+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:36.770+0000] {docker.py:69} INFO -     int(1742996305)
+[2025-03-26T13:47:36.770+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:36.772+0000] {docker.py:69} INFO -   [11]=>
+[2025-03-26T13:47:36.772+0000] {docker.py:69} INFO -   object(stdClass)#13 (3) {
+[2025-03-26T13:47:36.773+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:36.773+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:36.773+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:36.774+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:36.774+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:36.775+0000] {docker.py:69} INFO -     int(1742996305)
+[2025-03-26T13:47:36.775+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:36.776+0000] {docker.py:69} INFO -   [12]=>
+[2025-03-26T13:47:36.776+0000] {docker.py:69} INFO -   object(stdClass)#14 (3) {
+[2025-03-26T13:47:36.777+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:36.777+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:36.778+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:36.778+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:36.779+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:36.779+0000] {docker.py:69} INFO -     int(1742996309)
+[2025-03-26T13:47:36.780+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:36.780+0000] {docker.py:69} INFO -   [13]=>
+[2025-03-26T13:47:36.781+0000] {docker.py:69} INFO -   object(stdClass)#15 (3) {
+[2025-03-26T13:47:36.781+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:36.782+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:36.782+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:36.782+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:36.783+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:36.783+0000] {docker.py:69} INFO -     int(1742996309)
+[2025-03-26T13:47:36.784+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:36.784+0000] {docker.py:69} INFO -   [14]=>
+[2025-03-26T13:47:36.784+0000] {docker.py:69} INFO -   object(stdClass)#16 (3) {
+[2025-03-26T13:47:36.785+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:36.785+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:36.785+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:36.786+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:36.786+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:36.786+0000] {docker.py:69} INFO -     int(1742996309)
+[2025-03-26T13:47:36.787+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:36.787+0000] {docker.py:69} INFO -   [15]=>
+[2025-03-26T13:47:36.788+0000] {docker.py:69} INFO -   object(stdClass)#17 (3) {
+[2025-03-26T13:47:36.788+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:36.788+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:36.789+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:36.789+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:36.790+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:36.790+0000] {docker.py:69} INFO -     int(1742996309)
+[2025-03-26T13:47:36.790+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:36.791+0000] {docker.py:69} INFO -   [16]=>
+[2025-03-26T13:47:36.791+0000] {docker.py:69} INFO -   object(stdClass)#18 (3) {
+[2025-03-26T13:47:36.791+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:36.792+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:36.792+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:36.792+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:36.793+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:36.793+0000] {docker.py:69} INFO -     int(1742996310)
+[2025-03-26T13:47:36.794+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:36.794+0000] {docker.py:69} INFO -   [17]=>
+[2025-03-26T13:47:36.794+0000] {docker.py:69} INFO -   object(stdClass)#19 (3) {
+[2025-03-26T13:47:36.795+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:36.795+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:36.796+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:36.796+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:36.797+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:36.797+0000] {docker.py:69} INFO -     int(1742996310)
+[2025-03-26T13:47:36.798+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:36.798+0000] {docker.py:69} INFO -   [18]=>
+[2025-03-26T13:47:36.798+0000] {docker.py:69} INFO -   object(stdClass)#20 (3) {
+[2025-03-26T13:47:36.799+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:36.799+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:36.800+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:36.800+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:36.801+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:36.801+0000] {docker.py:69} INFO -     int(1742996310)
+[2025-03-26T13:47:36.801+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:36.802+0000] {docker.py:69} INFO -   [19]=>
+[2025-03-26T13:47:36.802+0000] {docker.py:69} INFO -   object(stdClass)#21 (3) {
+[2025-03-26T13:47:36.802+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:36.803+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:36.803+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:36.803+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:36.804+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:36.804+0000] {docker.py:69} INFO -     int(1742996311)
+[2025-03-26T13:47:36.805+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:36.805+0000] {docker.py:69} INFO -   [20]=>
+[2025-03-26T13:47:36.805+0000] {docker.py:69} INFO -   object(stdClass)#22 (3) {
+[2025-03-26T13:47:36.806+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:36.806+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:36.806+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:36.808+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:36.808+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:36.809+0000] {docker.py:69} INFO -     int(1742996311)
+[2025-03-26T13:47:36.811+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:36.812+0000] {docker.py:69} INFO -   [21]=>
+[2025-03-26T13:47:36.816+0000] {docker.py:69} INFO -   object(stdClass)#23 (3) {
+[2025-03-26T13:47:36.817+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:36.818+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:36.821+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:36.821+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:36.826+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:36.827+0000] {docker.py:69} INFO -     int(1742996312)
+[2025-03-26T13:47:36.827+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:36.827+0000] {docker.py:69} INFO -   [22]=>
+[2025-03-26T13:47:36.828+0000] {docker.py:69} INFO -   object(stdClass)#24 (3) {
+[2025-03-26T13:47:36.828+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:36.828+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:36.829+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:36.835+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:36.836+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:36.836+0000] {docker.py:69} INFO -     int(1742996313)
+[2025-03-26T13:47:36.836+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:36.837+0000] {docker.py:69} INFO -   [23]=>
+[2025-03-26T13:47:36.837+0000] {docker.py:69} INFO -   object(stdClass)#25 (3) {
+[2025-03-26T13:47:36.838+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:36.840+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:36.840+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:36.841+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:36.845+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:36.846+0000] {docker.py:69} INFO -     int(1742996751)
+[2025-03-26T13:47:36.846+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:36.870+0000] {docker.py:69} INFO -   [24]=>
+[2025-03-26T13:47:36.870+0000] {docker.py:69} INFO -   object(stdClass)#26 (3) {
+[2025-03-26T13:47:36.871+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:36.871+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:36.872+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:36.879+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:36.880+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:36.895+0000] {docker.py:69} INFO -     int(1742996751)
+[2025-03-26T13:47:36.896+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:36.899+0000] {docker.py:69} INFO -   [25]=>
+[2025-03-26T13:47:36.900+0000] {docker.py:69} INFO -   object(stdClass)#27 (3) {
+[2025-03-26T13:47:36.944+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:36.953+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:36.954+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:36.969+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:36.975+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:36.976+0000] {docker.py:69} INFO -     int(1742996756)
+[2025-03-26T13:47:37.011+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.012+0000] {docker.py:69} INFO -   [26]=>
+[2025-03-26T13:47:37.013+0000] {docker.py:69} INFO -   object(stdClass)#28 (3) {
+[2025-03-26T13:47:37.045+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.046+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.046+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.046+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:37.047+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.070+0000] {docker.py:69} INFO -     int(1742996756)
+[2025-03-26T13:47:37.070+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.071+0000] {docker.py:69} INFO -   [27]=>
+[2025-03-26T13:47:37.074+0000] {docker.py:69} INFO -   object(stdClass)#29 (3) {
+[2025-03-26T13:47:37.087+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.087+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.088+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.089+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:37.090+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.091+0000] {docker.py:69} INFO -     int(1742996757)
+[2025-03-26T13:47:37.091+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.095+0000] {docker.py:69} INFO -   [28]=>
+[2025-03-26T13:47:37.095+0000] {docker.py:69} INFO -   object(stdClass)#30 (3) {
+[2025-03-26T13:47:37.096+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.096+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.097+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.100+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:37.101+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.101+0000] {docker.py:69} INFO -     int(1742996757)
+[2025-03-26T13:47:37.101+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.102+0000] {docker.py:69} INFO -   [29]=>
+[2025-03-26T13:47:37.102+0000] {docker.py:69} INFO -   object(stdClass)#31 (3) {
+[2025-03-26T13:47:37.102+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.103+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.103+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.103+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:37.104+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.104+0000] {docker.py:69} INFO -     int(1742996758)
+[2025-03-26T13:47:37.104+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.105+0000] {docker.py:69} INFO -   [30]=>
+[2025-03-26T13:47:37.105+0000] {docker.py:69} INFO -   object(stdClass)#32 (3) {
+[2025-03-26T13:47:37.106+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.106+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.106+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.107+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:37.107+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.107+0000] {docker.py:69} INFO -     int(1742996760)
+[2025-03-26T13:47:37.108+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.108+0000] {docker.py:69} INFO -   [31]=>
+[2025-03-26T13:47:37.108+0000] {docker.py:69} INFO -   object(stdClass)#33 (3) {
+[2025-03-26T13:47:37.109+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.109+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.109+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.110+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:37.110+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.110+0000] {docker.py:69} INFO -     int(1742996760)
+[2025-03-26T13:47:37.111+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.111+0000] {docker.py:69} INFO -   [32]=>
+[2025-03-26T13:47:37.111+0000] {docker.py:69} INFO -   object(stdClass)#34 (3) {
+[2025-03-26T13:47:37.111+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.112+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.112+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.112+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:37.113+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.113+0000] {docker.py:69} INFO -     int(1742996761)
+[2025-03-26T13:47:37.113+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.114+0000] {docker.py:69} INFO -   [33]=>
+[2025-03-26T13:47:37.114+0000] {docker.py:69} INFO -   object(stdClass)#35 (3) {
+[2025-03-26T13:47:37.115+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.115+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.115+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.116+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:37.116+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.116+0000] {docker.py:69} INFO -     int(1742996762)
+[2025-03-26T13:47:37.117+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.117+0000] {docker.py:69} INFO -   [34]=>
+[2025-03-26T13:47:37.117+0000] {docker.py:69} INFO -   object(stdClass)#36 (3) {
+[2025-03-26T13:47:37.118+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.118+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.118+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.119+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:37.119+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.119+0000] {docker.py:69} INFO -     int(1742996762)
+[2025-03-26T13:47:37.120+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.120+0000] {docker.py:69} INFO -   [35]=>
+[2025-03-26T13:47:37.120+0000] {docker.py:69} INFO -   object(stdClass)#37 (3) {
+[2025-03-26T13:47:37.121+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.121+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.121+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.122+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:37.122+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.122+0000] {docker.py:69} INFO -     int(1742996763)
+[2025-03-26T13:47:37.123+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.123+0000] {docker.py:69} INFO -   [36]=>
+[2025-03-26T13:47:37.123+0000] {docker.py:69} INFO -   object(stdClass)#38 (3) {
+[2025-03-26T13:47:37.124+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.124+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.124+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.125+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:37.125+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.125+0000] {docker.py:69} INFO -     int(1742996763)
+[2025-03-26T13:47:37.125+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.126+0000] {docker.py:69} INFO -   [37]=>
+[2025-03-26T13:47:37.126+0000] {docker.py:69} INFO -   object(stdClass)#39 (3) {
+[2025-03-26T13:47:37.126+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.127+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.127+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.128+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:37.128+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.128+0000] {docker.py:69} INFO -     int(1742996771)
+[2025-03-26T13:47:37.129+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.129+0000] {docker.py:69} INFO -   [38]=>
+[2025-03-26T13:47:37.129+0000] {docker.py:69} INFO -   object(stdClass)#40 (3) {
+[2025-03-26T13:47:37.130+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.130+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.130+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.131+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:37.131+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.131+0000] {docker.py:69} INFO -     int(1742996773)
+[2025-03-26T13:47:37.131+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.132+0000] {docker.py:69} INFO -   [39]=>
+[2025-03-26T13:47:37.132+0000] {docker.py:69} INFO -   object(stdClass)#41 (3) {
+[2025-03-26T13:47:37.132+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.133+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.133+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.133+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:37.134+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.134+0000] {docker.py:69} INFO -     int(1742996773)
+[2025-03-26T13:47:37.134+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.135+0000] {docker.py:69} INFO -   [40]=>
+[2025-03-26T13:47:37.135+0000] {docker.py:69} INFO -   object(stdClass)#42 (3) {
+[2025-03-26T13:47:37.135+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.136+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.136+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.136+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:37.137+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.137+0000] {docker.py:69} INFO -     int(1742996775)
+[2025-03-26T13:47:37.137+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.138+0000] {docker.py:69} INFO -   [41]=>
+[2025-03-26T13:47:37.138+0000] {docker.py:69} INFO -   object(stdClass)#43 (3) {
+[2025-03-26T13:47:37.138+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.139+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.139+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.139+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:37.140+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.140+0000] {docker.py:69} INFO -     int(1742996775)
+[2025-03-26T13:47:37.140+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.141+0000] {docker.py:69} INFO -   [42]=>
+[2025-03-26T13:47:37.141+0000] {docker.py:69} INFO -   object(stdClass)#44 (3) {
+[2025-03-26T13:47:37.141+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.142+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.142+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.142+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:37.143+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.143+0000] {docker.py:69} INFO -     int(1742996775)
+[2025-03-26T13:47:37.143+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.144+0000] {docker.py:69} INFO -   [43]=>
+[2025-03-26T13:47:37.144+0000] {docker.py:69} INFO -   object(stdClass)#45 (3) {
+[2025-03-26T13:47:37.144+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.144+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.145+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.145+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:37.145+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.146+0000] {docker.py:69} INFO -     int(1742996777)
+[2025-03-26T13:47:37.146+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.146+0000] {docker.py:69} INFO -   [44]=>
+[2025-03-26T13:47:37.147+0000] {docker.py:69} INFO -   object(stdClass)#46 (3) {
+[2025-03-26T13:47:37.147+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.147+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.148+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.148+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:37.148+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.149+0000] {docker.py:69} INFO -     int(1742996779)
+[2025-03-26T13:47:37.149+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.149+0000] {docker.py:69} INFO -   [45]=>
+[2025-03-26T13:47:37.150+0000] {docker.py:69} INFO -   object(stdClass)#47 (3) {
+[2025-03-26T13:47:37.150+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.150+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.151+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.151+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:37.151+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.151+0000] {docker.py:69} INFO -     int(1742996779)
+[2025-03-26T13:47:37.152+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.152+0000] {docker.py:69} INFO -   [46]=>
+[2025-03-26T13:47:37.152+0000] {docker.py:69} INFO -   object(stdClass)#48 (3) {
+[2025-03-26T13:47:37.153+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.153+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.153+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.154+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:37.154+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.154+0000] {docker.py:69} INFO -     int(1742996781)
+[2025-03-26T13:47:37.155+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.155+0000] {docker.py:69} INFO -   [47]=>
+[2025-03-26T13:47:37.155+0000] {docker.py:69} INFO -   object(stdClass)#49 (3) {
+[2025-03-26T13:47:37.156+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.156+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.156+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.157+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:37.157+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.157+0000] {docker.py:69} INFO -     int(1742996781)
+[2025-03-26T13:47:37.158+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.158+0000] {docker.py:69} INFO -   [48]=>
+[2025-03-26T13:47:37.158+0000] {docker.py:69} INFO -   object(stdClass)#50 (3) {
+[2025-03-26T13:47:37.159+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.159+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.159+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.160+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:37.160+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.160+0000] {docker.py:69} INFO -     int(1742996781)
+[2025-03-26T13:47:37.161+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.161+0000] {docker.py:69} INFO -   [49]=>
+[2025-03-26T13:47:37.161+0000] {docker.py:69} INFO -   object(stdClass)#51 (3) {
+[2025-03-26T13:47:37.162+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.162+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.162+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.163+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:37.163+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.163+0000] {docker.py:69} INFO -     int(1742996783)
+[2025-03-26T13:47:37.164+0000] {docker.py:69} INFO - }
+[2025-03-26T13:47:37.164+0000] {docker.py:69} INFO -   [50]=>
+[2025-03-26T13:47:37.164+0000] {docker.py:69} INFO -   object(stdClass)#52 (3) {
+[2025-03-26T13:47:37.165+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.165+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.165+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.166+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:37.166+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.166+0000] {docker.py:69} INFO -     int(1742996783)
+[2025-03-26T13:47:37.167+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.167+0000] {docker.py:69} INFO - }
+[2025-03-26T13:47:37.167+0000] {docker.py:69} INFO -   [51]=>
+[2025-03-26T13:47:37.168+0000] {docker.py:69} INFO - object(stdClass)#53 (3) {
+[2025-03-26T13:47:37.168+0000] {docker.py:69} INFO -     ["contador
+[2025-03-26T13:47:37.169+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.169+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.169+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.170+0000] {docker.py:69} INFO -     [
+[2025-03-26T13:47:37.170+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.171+0000] {docker.py:69} INFO - container
+[2025-03-26T13:47:37.171+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.171+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.172+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:37.172+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.173+0000] {docker.py:69} INFO -     int(1742996783)
+[2025-03-26T13:47:37.173+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.173+0000] {docker.py:69} INFO -   [52]=>
+[2025-03-26T13:47:37.174+0000] {docker.py:69} INFO -   object(stdClass)#54 (3) {
+[2025-03-26T13:47:37.174+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.174+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.175+0000] {docker.py:69} INFO -     ["container"
+[2025-03-26T13:47:37.175+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.176+0000] {docker.py:69} INFO -     string(8) "
+[2025-03-26T13:47:37.176+0000] {docker.py:69} INFO - php-app2"
+[2025-03-26T13:47:37.177+0000] {docker.py:69} INFO -     [
+[2025-03-26T13:47:37.177+0000] {docker.py:69} INFO - "timestamp
+[2025-03-26T13:47:37.178+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.179+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.179+0000] {docker.py:69} INFO - int(1742996785)
+[2025-03-26T13:47:37.180+0000] {docker.py:69} INFO - }
+[2025-03-26T13:47:37.185+0000] {docker.py:69} INFO -   [53]=>
+[2025-03-26T13:47:37.185+0000] {docker.py:69} INFO -   object(stdClass)#55 (3) {
+[2025-03-26T13:47:37.188+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.188+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.189+0000] {docker.py:69} INFO -     [
+[2025-03-26T13:47:37.189+0000] {docker.py:69} INFO - "container"
+[2025-03-26T13:47:37.190+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.190+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:37.190+0000] {docker.py:69} INFO -     ["timestamp
+[2025-03-26T13:47:37.191+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.193+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.193+0000] {docker.py:69} INFO -     int(1742996789)
+[2025-03-26T13:47:37.194+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.194+0000] {docker.py:69} INFO -   [54]=>
+[2025-03-26T13:47:37.195+0000] {docker.py:69} INFO -   object(stdClass)#56 (3) {
+[2025-03-26T13:47:37.195+0000] {docker.py:69} INFO -     [
+[2025-03-26T13:47:37.196+0000] {docker.py:69} INFO - "contador"]=>
+[2025-03-26T13:47:37.196+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.197+0000] {docker.py:69} INFO - int(1)
+[2025-03-26T13:47:37.197+0000] {docker.py:69} INFO -     ["container
+[2025-03-26T13:47:37.198+0000] {docker.py:69} INFO - "]=>
+[2025-03-26T13:47:37.198+0000] {docker.py:69} INFO -     string(8) "php-app1
+[2025-03-26T13:47:37.199+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.199+0000] {docker.py:69} INFO -     [
+[2025-03-26T13:47:37.200+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.200+0000] {docker.py:69} INFO - timestamp"]=>
+[2025-03-26T13:47:37.201+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.201+0000] {docker.py:69} INFO - int(1742996790)
+[2025-03-26T13:47:37.202+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.202+0000] {docker.py:69} INFO -   [55]=>
+[2025-03-26T13:47:37.203+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.203+0000] {docker.py:69} INFO - object(stdClass)#57 (3) {
+[2025-03-26T13:47:37.204+0000] {docker.py:69} INFO -     [
+[2025-03-26T13:47:37.204+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.205+0000] {docker.py:69} INFO - contador
+[2025-03-26T13:47:37.205+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.206+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.206+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.207+0000] {docker.py:69} INFO - int(1)
+[2025-03-26T13:47:37.208+0000] {docker.py:69} INFO -     [
+[2025-03-26T13:47:37.208+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.209+0000] {docker.py:69} INFO - container
+[2025-03-26T13:47:37.209+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.210+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.211+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.211+0000] {docker.py:69} INFO - string(8) "
+[2025-03-26T13:47:37.212+0000] {docker.py:69} INFO - php-app1
+[2025-03-26T13:47:37.212+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.217+0000] {docker.py:69} INFO -     [
+[2025-03-26T13:47:37.218+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.218+0000] {docker.py:69} INFO - timestamp
+[2025-03-26T13:47:37.219+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.220+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.220+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.221+0000] {docker.py:69} INFO - int(1742996790)
+[2025-03-26T13:47:37.221+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.222+0000] {docker.py:69} INFO - }
+[2025-03-26T13:47:37.226+0000] {docker.py:69} INFO -   [56]=>
+[2025-03-26T13:47:37.227+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.252+0000] {docker.py:69} INFO - object(stdClass)#58 (3) {
+[2025-03-26T13:47:37.253+0000] {docker.py:69} INFO -     ["contador
+[2025-03-26T13:47:37.254+0000] {docker.py:69} INFO - "]=>
+[2025-03-26T13:47:37.255+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.274+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.275+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:37.275+0000] {docker.py:69} INFO -     ["
+[2025-03-26T13:47:37.282+0000] {docker.py:69} INFO - timestamp
+[2025-03-26T13:47:37.290+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.295+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.295+0000] {docker.py:69} INFO - int(1742996790)
+[2025-03-26T13:47:37.295+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.296+0000] {docker.py:69} INFO -   [57]=>
+[2025-03-26T13:47:37.296+0000] {docker.py:69} INFO -   object(stdClass)#59 (3) {
+[2025-03-26T13:47:37.297+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.315+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.316+0000] {docker.py:69} INFO -     [
+[2025-03-26T13:47:37.316+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.317+0000] {docker.py:69} INFO - container"]=>
+[2025-03-26T13:47:37.317+0000] {docker.py:69} INFO - string(8) "php-app2
+[2025-03-26T13:47:37.317+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.318+0000] {docker.py:69} INFO -     [
+[2025-03-26T13:47:37.338+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.338+0000] {docker.py:69} INFO - timestamp
+[2025-03-26T13:47:37.339+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.339+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.340+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.348+0000] {docker.py:69} INFO - int(1742996791)
+[2025-03-26T13:47:37.349+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.349+0000] {docker.py:69} INFO - }
+[2025-03-26T13:47:37.350+0000] {docker.py:69} INFO -   [58]=>
+[2025-03-26T13:47:37.350+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.350+0000] {docker.py:69} INFO - object(stdClass)#60 (3) {
+[2025-03-26T13:47:37.351+0000] {docker.py:69} INFO -     [
+[2025-03-26T13:47:37.357+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.363+0000] {docker.py:69} INFO - contador
+[2025-03-26T13:47:37.364+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.364+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.365+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.365+0000] {docker.py:69} INFO - int(1)
+[2025-03-26T13:47:37.366+0000] {docker.py:69} INFO -     [
+[2025-03-26T13:47:37.378+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.384+0000] {docker.py:69} INFO - container
+[2025-03-26T13:47:37.385+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.386+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.387+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.387+0000] {docker.py:69} INFO - string(8) "
+[2025-03-26T13:47:37.391+0000] {docker.py:69} INFO - php-app1
+[2025-03-26T13:47:37.391+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.392+0000] {docker.py:69} INFO -     [
+[2025-03-26T13:47:37.392+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.397+0000] {docker.py:69} INFO - timestamp
+[2025-03-26T13:47:37.398+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.398+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.399+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.399+0000] {docker.py:69} INFO - int(1742996792)
+[2025-03-26T13:47:37.399+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.406+0000] {docker.py:69} INFO - }
+[2025-03-26T13:47:37.407+0000] {docker.py:69} INFO -   [59]=>
+[2025-03-26T13:47:37.407+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.407+0000] {docker.py:69} INFO - object(stdClass)#61 (3) {
+[2025-03-26T13:47:37.408+0000] {docker.py:69} INFO -     [
+[2025-03-26T13:47:37.408+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.411+0000] {docker.py:69} INFO - contador
+[2025-03-26T13:47:37.413+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.414+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.414+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.415+0000] {docker.py:69} INFO - int(1)
+[2025-03-26T13:47:37.416+0000] {docker.py:69} INFO -     [
+[2025-03-26T13:47:37.418+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.419+0000] {docker.py:69} INFO - container"]=>
+[2025-03-26T13:47:37.419+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.425+0000] {docker.py:69} INFO - string(8) "php-app1"
+[2025-03-26T13:47:37.426+0000] {docker.py:69} INFO -     [
+[2025-03-26T13:47:37.427+0000] {docker.py:69} INFO - "timestamp
+[2025-03-26T13:47:37.427+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.431+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.432+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.432+0000] {docker.py:69} INFO - int(1742996793)
+[2025-03-26T13:47:37.434+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.435+0000] {docker.py:69} INFO - }
+[2025-03-26T13:47:37.435+0000] {docker.py:69} INFO -   [60]=>
+[2025-03-26T13:47:37.452+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.453+0000] {docker.py:69} INFO - object(stdClass)#62 (3) {
+[2025-03-26T13:47:37.454+0000] {docker.py:69} INFO -     ["
+[2025-03-26T13:47:37.455+0000] {docker.py:69} INFO - contador"
+[2025-03-26T13:47:37.456+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.457+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.457+0000] {docker.py:69} INFO - int(1)
+[2025-03-26T13:47:37.458+0000] {docker.py:69} INFO -     [
+[2025-03-26T13:47:37.460+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.462+0000] {docker.py:69} INFO - container
+[2025-03-26T13:47:37.463+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.466+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.467+0000] {docker.py:69} INFO -     string(8) "
+[2025-03-26T13:47:37.471+0000] {docker.py:69} INFO - php-app2
+[2025-03-26T13:47:37.471+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.472+0000] {docker.py:69} INFO -     [
+[2025-03-26T13:47:37.472+0000] {docker.py:69} INFO - "timestamp
+[2025-03-26T13:47:37.473+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.479+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.481+0000] {docker.py:69} INFO - int(1742996794)
+[2025-03-26T13:47:37.481+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.485+0000] {docker.py:69} INFO -   [61]=>
+[2025-03-26T13:47:37.485+0000] {docker.py:69} INFO -   object(stdClass)#63 (3) {
+[2025-03-26T13:47:37.486+0000] {docker.py:69} INFO -     ["contador"
+[2025-03-26T13:47:37.488+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.489+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.489+0000] {docker.py:69} INFO - int(1)
+[2025-03-26T13:47:37.490+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.491+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:37.494+0000] {docker.py:69} INFO -     ["
+[2025-03-26T13:47:37.496+0000] {docker.py:69} INFO - timestamp
+[2025-03-26T13:47:37.496+0000] {docker.py:69} INFO - "]=>
+[2025-03-26T13:47:37.502+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.503+0000] {docker.py:69} INFO - int(1742996795)
+[2025-03-26T13:47:37.504+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.519+0000] {docker.py:69} INFO -   [62]=>
+[2025-03-26T13:47:37.520+0000] {docker.py:69} INFO - object(stdClass)#64 (3) {
+[2025-03-26T13:47:37.521+0000] {docker.py:69} INFO -     [
+[2025-03-26T13:47:37.536+0000] {docker.py:69} INFO - "contador"]=>
+[2025-03-26T13:47:37.537+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.538+0000] {docker.py:69} INFO -     [
+[2025-03-26T13:47:37.551+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.588+0000] {docker.py:69} INFO - container
+[2025-03-26T13:47:37.589+0000] {docker.py:69} INFO - "]=>
+[2025-03-26T13:47:37.590+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:37.590+0000] {docker.py:69} INFO -     ["timestamp"
+[2025-03-26T13:47:37.591+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.607+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.609+0000] {docker.py:69} INFO - int(1742996797)
+[2025-03-26T13:47:37.609+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.628+0000] {docker.py:69} INFO -   [63]=>
+[2025-03-26T13:47:37.641+0000] {docker.py:69} INFO -   object(stdClass)#65 (3) {
+[2025-03-26T13:47:37.641+0000] {docker.py:69} INFO -     ["contador"
+[2025-03-26T13:47:37.644+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.650+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.651+0000] {docker.py:69} INFO -     [
+[2025-03-26T13:47:37.651+0000] {docker.py:69} INFO - "container
+[2025-03-26T13:47:37.652+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.652+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.653+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.662+0000] {docker.py:69} INFO - string(8) "php-app2"
+[2025-03-26T13:47:37.664+0000] {docker.py:69} INFO -     ["timestamp"
+[2025-03-26T13:47:37.664+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.668+0000] {docker.py:69} INFO -     int(1742996797)
+[2025-03-26T13:47:37.669+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.670+0000] {docker.py:69} INFO -   [64]=>
+[2025-03-26T13:47:37.670+0000] {docker.py:69} INFO -   object(stdClass)#66 (3) {
+[2025-03-26T13:47:37.671+0000] {docker.py:69} INFO -     [
+[2025-03-26T13:47:37.671+0000] {docker.py:69} INFO - "contador"]=>
+[2025-03-26T13:47:37.672+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.683+0000] {docker.py:69} INFO - int(1)
+[2025-03-26T13:47:37.684+0000] {docker.py:69} INFO -     ["
+[2025-03-26T13:47:37.684+0000] {docker.py:69} INFO - container
+[2025-03-26T13:47:37.685+0000] {docker.py:69} INFO - "]=>
+[2025-03-26T13:47:37.685+0000] {docker.py:69} INFO -     string(8) "php-app2
+[2025-03-26T13:47:37.691+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.692+0000] {docker.py:69} INFO -     ["
+[2025-03-26T13:47:37.692+0000] {docker.py:69} INFO - timestamp
+[2025-03-26T13:47:37.693+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.693+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.698+0000] {docker.py:69} INFO -     int(1742996797)
+[2025-03-26T13:47:37.698+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.699+0000] {docker.py:69} INFO -   [65]=>
+[2025-03-26T13:47:37.699+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.700+0000] {docker.py:69} INFO - object(stdClass)#67 (3) {
+[2025-03-26T13:47:37.704+0000] {docker.py:69} INFO -     ["contador
+[2025-03-26T13:47:37.704+0000] {docker.py:69} INFO - "]=>
+[2025-03-26T13:47:37.705+0000] {docker.py:69} INFO - int(1)
+[2025-03-26T13:47:37.705+0000] {docker.py:69} INFO -     [
+[2025-03-26T13:47:37.706+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.709+0000] {docker.py:69} INFO - container
+[2025-03-26T13:47:37.710+0000] {docker.py:69} INFO - "]=>
+[2025-03-26T13:47:37.710+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.711+0000] {docker.py:69} INFO - string(8) "
+[2025-03-26T13:47:37.712+0000] {docker.py:69} INFO - php-app1
+[2025-03-26T13:47:37.712+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.713+0000] {docker.py:69} INFO -     [
+[2025-03-26T13:47:37.713+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.714+0000] {docker.py:69} INFO - timestamp
+[2025-03-26T13:47:37.715+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.715+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.716+0000] {docker.py:69} INFO -     int(1742996804)
+[2025-03-26T13:47:37.716+0000] {docker.py:69} INFO - }
+[2025-03-26T13:47:37.717+0000] {docker.py:69} INFO -   [66]=>
+[2025-03-26T13:47:37.717+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.718+0000] {docker.py:69} INFO - object(stdClass)#68 (3) {
+[2025-03-26T13:47:37.718+0000] {docker.py:69} INFO -     [
+[2025-03-26T13:47:37.719+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.720+0000] {docker.py:69} INFO - contador"]=>
+[2025-03-26T13:47:37.720+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.721+0000] {docker.py:69} INFO -     ["
+[2025-03-26T13:47:37.721+0000] {docker.py:69} INFO - container"
+[2025-03-26T13:47:37.722+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.723+0000] {docker.py:69} INFO -     string(8) "
+[2025-03-26T13:47:37.723+0000] {docker.py:69} INFO - php-app2"
+[2025-03-26T13:47:37.724+0000] {docker.py:69} INFO -     [
+[2025-03-26T13:47:37.724+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.725+0000] {docker.py:69} INFO - timestamp"
+[2025-03-26T13:47:37.726+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.726+0000] {docker.py:69} INFO -     int(1742996806)
+[2025-03-26T13:47:37.727+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.727+0000] {docker.py:69} INFO -   [67]=>
+[2025-03-26T13:47:37.728+0000] {docker.py:69} INFO - object(stdClass)#69 (3) {
+[2025-03-26T13:47:37.728+0000] {docker.py:69} INFO -     [
+[2025-03-26T13:47:37.729+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.731+0000] {docker.py:69} INFO - contador"
+[2025-03-26T13:47:37.732+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.733+0000] {docker.py:69} INFO - int(1)
+[2025-03-26T13:47:37.734+0000] {docker.py:69} INFO -     ["
+[2025-03-26T13:47:37.735+0000] {docker.py:69} INFO - container
+[2025-03-26T13:47:37.736+0000] {docker.py:69} INFO - "]=>
+[2025-03-26T13:47:37.736+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.737+0000] {docker.py:69} INFO - string(8) "php-app2
+[2025-03-26T13:47:37.738+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.738+0000] {docker.py:69} INFO -     ["
+[2025-03-26T13:47:37.739+0000] {docker.py:69} INFO - timestamp"
+[2025-03-26T13:47:37.740+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.740+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.741+0000] {docker.py:69} INFO - int(1742996807)
+[2025-03-26T13:47:37.741+0000] {docker.py:69} INFO - 
+[2025-03-26T13:47:37.742+0000] {docker.py:69} INFO - }
+[2025-03-26T13:47:37.742+0000] {docker.py:69} INFO -   [68]=>
+[2025-03-26T13:47:37.743+0000] {docker.py:69} INFO - object(stdClass)#70 (3) {
+[2025-03-26T13:47:37.744+0000] {docker.py:69} INFO -     ["
+[2025-03-26T13:47:37.744+0000] {docker.py:69} INFO - contador
+[2025-03-26T13:47:37.803+0000] {docker.py:69} INFO - "
+[2025-03-26T13:47:37.809+0000] {docker.py:69} INFO - ]=>
+[2025-03-26T13:47:37.815+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.816+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.820+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:37.823+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.823+0000] {docker.py:69} INFO -     int(1742996807)
+[2025-03-26T13:47:37.824+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.899+0000] {docker.py:69} INFO -   [69]=>
+[2025-03-26T13:47:37.901+0000] {docker.py:69} INFO -   object(stdClass)#71 (3) {
+[2025-03-26T13:47:37.905+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.907+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.914+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.914+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:37.915+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.924+0000] {docker.py:69} INFO -     int(1742996809)
+[2025-03-26T13:47:37.925+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.926+0000] {docker.py:69} INFO -   [70]=>
+[2025-03-26T13:47:37.926+0000] {docker.py:69} INFO -   object(stdClass)#72 (3) {
+[2025-03-26T13:47:37.927+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.929+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.930+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.932+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:37.932+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.933+0000] {docker.py:69} INFO -     int(1742996810)
+[2025-03-26T13:47:37.940+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.940+0000] {docker.py:69} INFO -   [71]=>
+[2025-03-26T13:47:37.944+0000] {docker.py:69} INFO -   object(stdClass)#73 (3) {
+[2025-03-26T13:47:37.945+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.948+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.949+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.949+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:37.950+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.950+0000] {docker.py:69} INFO -     int(1742996812)
+[2025-03-26T13:47:37.950+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.951+0000] {docker.py:69} INFO -   [72]=>
+[2025-03-26T13:47:37.951+0000] {docker.py:69} INFO -   object(stdClass)#74 (3) {
+[2025-03-26T13:47:37.951+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.952+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.952+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.955+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:37.955+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.955+0000] {docker.py:69} INFO -     int(1742996813)
+[2025-03-26T13:47:37.956+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.958+0000] {docker.py:69} INFO -   [73]=>
+[2025-03-26T13:47:37.958+0000] {docker.py:69} INFO -   object(stdClass)#75 (3) {
+[2025-03-26T13:47:37.959+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.960+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.960+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.960+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:37.961+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.961+0000] {docker.py:69} INFO -     int(1742996813)
+[2025-03-26T13:47:37.962+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.962+0000] {docker.py:69} INFO -   [74]=>
+[2025-03-26T13:47:37.963+0000] {docker.py:69} INFO -   object(stdClass)#76 (3) {
+[2025-03-26T13:47:37.963+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.963+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.964+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.964+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:37.965+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.965+0000] {docker.py:69} INFO -     int(1742996815)
+[2025-03-26T13:47:37.965+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.966+0000] {docker.py:69} INFO -   [75]=>
+[2025-03-26T13:47:37.966+0000] {docker.py:69} INFO -   object(stdClass)#77 (3) {
+[2025-03-26T13:47:37.966+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.967+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.967+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.968+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:37.968+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.968+0000] {docker.py:69} INFO -     int(1742996816)
+[2025-03-26T13:47:37.969+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.969+0000] {docker.py:69} INFO -   [76]=>
+[2025-03-26T13:47:37.970+0000] {docker.py:69} INFO -   object(stdClass)#78 (3) {
+[2025-03-26T13:47:37.970+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.970+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.971+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.972+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:37.972+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.972+0000] {docker.py:69} INFO -     int(1742996816)
+[2025-03-26T13:47:37.973+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.973+0000] {docker.py:69} INFO -   [77]=>
+[2025-03-26T13:47:37.974+0000] {docker.py:69} INFO -   object(stdClass)#79 (3) {
+[2025-03-26T13:47:37.974+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.975+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.975+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.976+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:37.976+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.977+0000] {docker.py:69} INFO -     int(1742996816)
+[2025-03-26T13:47:37.982+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.983+0000] {docker.py:69} INFO -   [78]=>
+[2025-03-26T13:47:37.985+0000] {docker.py:69} INFO -   object(stdClass)#80 (3) {
+[2025-03-26T13:47:37.986+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.986+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.987+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.987+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:37.988+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.988+0000] {docker.py:69} INFO -     int(1742996817)
+[2025-03-26T13:47:37.989+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.989+0000] {docker.py:69} INFO -   [79]=>
+[2025-03-26T13:47:37.989+0000] {docker.py:69} INFO -   object(stdClass)#81 (3) {
+[2025-03-26T13:47:37.990+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.990+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.991+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.991+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:37.992+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.992+0000] {docker.py:69} INFO -     int(1742996817)
+[2025-03-26T13:47:37.992+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.993+0000] {docker.py:69} INFO -   [80]=>
+[2025-03-26T13:47:37.993+0000] {docker.py:69} INFO -   object(stdClass)#82 (3) {
+[2025-03-26T13:47:37.994+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.994+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.994+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.995+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:37.996+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:37.996+0000] {docker.py:69} INFO -     int(1742996818)
+[2025-03-26T13:47:37.997+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:37.997+0000] {docker.py:69} INFO -   [81]=>
+[2025-03-26T13:47:37.998+0000] {docker.py:69} INFO -   object(stdClass)#83 (3) {
+[2025-03-26T13:47:37.998+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:37.999+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:37.999+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:37.999+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:38.003+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:38.003+0000] {docker.py:69} INFO -     int(1742996821)
+[2025-03-26T13:47:38.004+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:38.004+0000] {docker.py:69} INFO -   [82]=>
+[2025-03-26T13:47:38.004+0000] {docker.py:69} INFO -   object(stdClass)#84 (3) {
+[2025-03-26T13:47:38.005+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:38.013+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:38.013+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:38.014+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:38.014+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:38.015+0000] {docker.py:69} INFO -     int(1742996824)
+[2025-03-26T13:47:38.015+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:38.015+0000] {docker.py:69} INFO -   [83]=>
+[2025-03-26T13:47:38.016+0000] {docker.py:69} INFO -   object(stdClass)#85 (3) {
+[2025-03-26T13:47:38.016+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:38.017+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:38.018+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:38.018+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:38.018+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:38.019+0000] {docker.py:69} INFO -     int(1742996825)
+[2025-03-26T13:47:38.020+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:38.020+0000] {docker.py:69} INFO -   [84]=>
+[2025-03-26T13:47:38.020+0000] {docker.py:69} INFO -   object(stdClass)#86 (3) {
+[2025-03-26T13:47:38.021+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:38.021+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:38.022+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:38.025+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:38.030+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:38.031+0000] {docker.py:69} INFO -     int(1742996826)
+[2025-03-26T13:47:38.031+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:38.033+0000] {docker.py:69} INFO -   [85]=>
+[2025-03-26T13:47:38.035+0000] {docker.py:69} INFO -   object(stdClass)#87 (3) {
+[2025-03-26T13:47:38.035+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:38.036+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:38.038+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:38.039+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:38.040+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:38.041+0000] {docker.py:69} INFO -     int(1742996826)
+[2025-03-26T13:47:38.041+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:38.042+0000] {docker.py:69} INFO -   [86]=>
+[2025-03-26T13:47:38.044+0000] {docker.py:69} INFO -   object(stdClass)#88 (3) {
+[2025-03-26T13:47:38.045+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:38.055+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:38.057+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:38.058+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:38.058+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:38.059+0000] {docker.py:69} INFO -     int(1742996827)
+[2025-03-26T13:47:38.059+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:38.060+0000] {docker.py:69} INFO -   [87]=>
+[2025-03-26T13:47:38.060+0000] {docker.py:69} INFO -   object(stdClass)#89 (3) {
+[2025-03-26T13:47:38.060+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:38.061+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:38.062+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:38.062+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:38.062+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:38.063+0000] {docker.py:69} INFO -     int(1742996828)
+[2025-03-26T13:47:38.063+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:38.064+0000] {docker.py:69} INFO -   [88]=>
+[2025-03-26T13:47:38.064+0000] {docker.py:69} INFO -   object(stdClass)#90 (3) {
+[2025-03-26T13:47:38.064+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:38.065+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:38.135+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:38.136+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:38.137+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:38.137+0000] {docker.py:69} INFO -     int(1742996828)
+[2025-03-26T13:47:38.138+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:38.138+0000] {docker.py:69} INFO -   [89]=>
+[2025-03-26T13:47:38.139+0000] {docker.py:69} INFO -   object(stdClass)#91 (3) {
+[2025-03-26T13:47:38.139+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:38.140+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:38.140+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:38.141+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:38.141+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:38.142+0000] {docker.py:69} INFO -     int(1742996829)
+[2025-03-26T13:47:38.142+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:38.142+0000] {docker.py:69} INFO -   [90]=>
+[2025-03-26T13:47:38.143+0000] {docker.py:69} INFO -   object(stdClass)#92 (3) {
+[2025-03-26T13:47:38.143+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:38.143+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:38.144+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:38.144+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:38.144+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:38.145+0000] {docker.py:69} INFO -     int(1742996829)
+[2025-03-26T13:47:38.145+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:38.146+0000] {docker.py:69} INFO -   [91]=>
+[2025-03-26T13:47:38.146+0000] {docker.py:69} INFO -   object(stdClass)#93 (3) {
+[2025-03-26T13:47:38.146+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:38.147+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:38.147+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:38.147+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:38.148+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:38.148+0000] {docker.py:69} INFO -     int(1742996838)
+[2025-03-26T13:47:38.149+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:38.149+0000] {docker.py:69} INFO -   [92]=>
+[2025-03-26T13:47:38.149+0000] {docker.py:69} INFO -   object(stdClass)#94 (3) {
+[2025-03-26T13:47:38.150+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:38.150+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:38.150+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:38.151+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:38.151+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:38.152+0000] {docker.py:69} INFO -     int(1742996841)
+[2025-03-26T13:47:38.152+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:38.153+0000] {docker.py:69} INFO -   [93]=>
+[2025-03-26T13:47:38.153+0000] {docker.py:69} INFO -   object(stdClass)#95 (3) {
+[2025-03-26T13:47:38.153+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:38.154+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:38.154+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:38.155+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:38.155+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:38.155+0000] {docker.py:69} INFO -     int(1742996842)
+[2025-03-26T13:47:38.156+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:38.156+0000] {docker.py:69} INFO -   [94]=>
+[2025-03-26T13:47:38.157+0000] {docker.py:69} INFO -   object(stdClass)#96 (3) {
+[2025-03-26T13:47:38.158+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:38.158+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:38.159+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:38.159+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:38.159+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:38.160+0000] {docker.py:69} INFO -     int(1742996843)
+[2025-03-26T13:47:38.160+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:38.161+0000] {docker.py:69} INFO -   [95]=>
+[2025-03-26T13:47:38.161+0000] {docker.py:69} INFO -   object(stdClass)#97 (3) {
+[2025-03-26T13:47:38.161+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:38.162+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:38.162+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:38.163+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:38.163+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:38.163+0000] {docker.py:69} INFO -     int(1742996843)
+[2025-03-26T13:47:38.164+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:38.164+0000] {docker.py:69} INFO -   [96]=>
+[2025-03-26T13:47:38.165+0000] {docker.py:69} INFO -   object(stdClass)#98 (3) {
+[2025-03-26T13:47:38.165+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:38.166+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:38.166+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:38.166+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:38.167+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:38.167+0000] {docker.py:69} INFO -     int(1742996844)
+[2025-03-26T13:47:38.168+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:38.169+0000] {docker.py:69} INFO -   [97]=>
+[2025-03-26T13:47:38.170+0000] {docker.py:69} INFO -   object(stdClass)#99 (3) {
+[2025-03-26T13:47:38.170+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:38.171+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:38.171+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:38.172+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:38.172+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:38.173+0000] {docker.py:69} INFO -     int(1742996849)
+[2025-03-26T13:47:38.173+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:38.173+0000] {docker.py:69} INFO -   [98]=>
+[2025-03-26T13:47:38.174+0000] {docker.py:69} INFO -   object(stdClass)#100 (3) {
+[2025-03-26T13:47:38.174+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:38.174+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:38.175+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:38.175+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:38.175+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:38.176+0000] {docker.py:69} INFO -     int(1742996849)
+[2025-03-26T13:47:38.176+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:38.177+0000] {docker.py:69} INFO -   [99]=>
+[2025-03-26T13:47:38.177+0000] {docker.py:69} INFO -   object(stdClass)#101 (3) {
+[2025-03-26T13:47:38.177+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:38.178+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:38.178+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:38.178+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:38.179+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:38.180+0000] {docker.py:69} INFO -     int(1742996849)
+[2025-03-26T13:47:38.183+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:38.183+0000] {docker.py:69} INFO -   [100]=>
+[2025-03-26T13:47:38.184+0000] {docker.py:69} INFO -   object(stdClass)#102 (3) {
+[2025-03-26T13:47:38.184+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:38.184+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:38.185+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:38.185+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:38.186+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:38.186+0000] {docker.py:69} INFO -     int(1742996850)
+[2025-03-26T13:47:38.187+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:38.187+0000] {docker.py:69} INFO -   [101]=>
+[2025-03-26T13:47:38.188+0000] {docker.py:69} INFO -   object(stdClass)#103 (3) {
+[2025-03-26T13:47:38.188+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:38.189+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:38.227+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:38.227+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:38.228+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:38.239+0000] {docker.py:69} INFO -     int(1742996850)
+[2025-03-26T13:47:38.239+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:38.240+0000] {docker.py:69} INFO -   [102]=>
+[2025-03-26T13:47:38.255+0000] {docker.py:69} INFO -   object(stdClass)#104 (3) {
+[2025-03-26T13:47:38.256+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:38.267+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:38.267+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:38.268+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:38.292+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:38.293+0000] {docker.py:69} INFO -     int(1742996851)
+[2025-03-26T13:47:38.312+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:38.313+0000] {docker.py:69} INFO -   [103]=>
+[2025-03-26T13:47:38.326+0000] {docker.py:69} INFO -   object(stdClass)#105 (3) {
+[2025-03-26T13:47:38.327+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:38.327+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:38.327+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:38.328+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:38.405+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:38.406+0000] {docker.py:69} INFO -     int(1742996854)
+[2025-03-26T13:47:38.407+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:38.407+0000] {docker.py:69} INFO -   [104]=>
+[2025-03-26T13:47:38.408+0000] {docker.py:69} INFO -   object(stdClass)#106 (3) {
+[2025-03-26T13:47:38.408+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:38.409+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:38.409+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:38.409+0000] {docker.py:69} INFO -     string(8) "php-app2"
+[2025-03-26T13:47:38.410+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:38.410+0000] {docker.py:69} INFO -     int(1742996855)
+[2025-03-26T13:47:38.410+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:38.411+0000] {docker.py:69} INFO -   [105]=>
+[2025-03-26T13:47:38.411+0000] {docker.py:69} INFO -   array(3) {
+[2025-03-26T13:47:38.411+0000] {docker.py:69} INFO -     ["contador"]=>
+[2025-03-26T13:47:38.412+0000] {docker.py:69} INFO -     int(1)
+[2025-03-26T13:47:38.412+0000] {docker.py:69} INFO -     ["container"]=>
+[2025-03-26T13:47:38.412+0000] {docker.py:69} INFO -     string(8) "php-app1"
+[2025-03-26T13:47:38.413+0000] {docker.py:69} INFO -     ["timestamp"]=>
+[2025-03-26T13:47:38.413+0000] {docker.py:69} INFO -     int(1742996856)
+[2025-03-26T13:47:38.414+0000] {docker.py:69} INFO -   }
+[2025-03-26T13:47:38.414+0000] {docker.py:69} INFO - }
+[2025-03-26T13:47:38.647+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-26T13:47:38.648+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=containers1_dag, task_id=php_app1, run_id=scheduled__2025-03-25T03:25:00+00:00, execution_date=20250325T032500, start_date=20250326T134727, end_date=20250326T134738
+[2025-03-26T13:47:38.824+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-26T13:47:38.875+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-26T13:47:38.908+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -13,8 +13,9 @@ with DAG(
     dag_id="containers1_dag",
     default_args=default_args,
     description="Execução de containers em PHP, atualizando um arquivo",
-    start_date=datetime(2024, 3, 1),
-    schedule_interval='@daily',
+    start_date=datetime(2025, 3, 25),
+    # schedule_interval='@daily',
+   schedule_interval=timedelta(minutes=5),
 ) as dag:
     
     # Ajuste estes caminhos para seu ambiente REAL
